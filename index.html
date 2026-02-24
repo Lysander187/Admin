@@ -274,6 +274,21 @@ footer {
   max-width: 1000px;
   
 <script>
+
+<script>
+function showSection(id) {
+  // hide all sections
+  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+  // show the selected section
+  document.getElementById(id).style.display = 'block';
+}
+
+// optional: show first section by default
+window.onload = function() {
+  showSection('dashboard'); // change to 'belus-system' if you want it default
+};
+</script>
+  
 function showSection(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');

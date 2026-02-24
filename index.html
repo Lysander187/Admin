@@ -268,6 +268,11 @@ footer {
 }
 </style>
 
+.card img {
+  width: 100%;
+  height: auto;
+  max-width: 1000px;
+  
 <script>
 function showSection(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -305,6 +310,7 @@ BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: 
 
 <div class="sidebar">
  <button onclick="showSection('lore')">Planetary Dossier</button>
+  <button onclick="showSection('lore')">Belus System Map</button>
   <button onclick="showSection('system')">Belus System</button>
   <button onclick="showSection('tithe')">Tithe Records</button>
   <button onclick="showSection('population')">Population Ledger</button>
@@ -445,7 +451,19 @@ BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: 
 </div>
 
 </div>
-
+  
+<div id="maps" class="section">
+  <h2>Belus System Map</h2>
+  <div class="card" style="text-align:center;">
+    <img src="images/belus_system_map.png" 
+         alt="Belus System Map" 
+         style="width:100%; max-width:1000px; height:auto; border:1px solid #8b6b2b; border-radius:8px;">
+    <p style="margin-top:10px; color:#d4af37; font-family:'Cinzel', serif; font-size:14px;">
+      Belus System — Segmentum Pacificus | Population: Est. 54.3B
+    </p>
+  </div>
+</div>
+  
 <div id="tithe" class="section active">
 <h2>Tithe Records</h2>
 <table>

@@ -360,5 +360,52 @@ function checkInquisition() {
 }
 </script>
 
+<script>
+let clearanceLevel = 0;
+
+function authorizeAccess() {
+
+  const input = document.getElementById("clearanceCode");
+  const result = document.getElementById("loginResult");
+
+  if(!input) {
+    alert("ERROR: clearanceCode input not found");
+    return;
+  }
+
+  const code = input.value;
+
+  if(code === "ADMIN-765") {
+    clearanceLevel = 1;
+    result.innerHTML = "ADMINISTRATUM CLEARANCE GRANTED";
+    unlockAccess();
+  }
+  else if(code === "MECH-OMNISSIAH") {
+    clearanceLevel = 2;
+    result.innerHTML = "MECHANICUS CLEARANCE GRANTED";
+    unlockAccess();
+  }
+  else if(code === "STARc-764-M41") {
+    clearanceLevel = 3;
+    result.innerHTML = "INQUISITORIAL CLEARANCE GRANTED";
+    unlockAccess();
+  }
+  else {
+    result.innerHTML = "ACCESS DENIED — INCIDENT LOGGED";
+  }
+
+}
+
+function unlockAccess() {
+
+  const login = document.getElementById("loginScreen");
+
+  if(login){
+    login.style.display = "none";
+  }
+
+}
+</script>
+
 </body>
 </html>

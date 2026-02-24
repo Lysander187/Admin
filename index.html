@@ -304,7 +304,7 @@ BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: 
 </header>
 
 <div class="sidebar">
- 
+ <button onclick="showSection('lore')">Planetary Dossier</button>
   <button onclick="showSection('tithe')">Tithe Records</button>
   <button onclick="showSection('population')">Population Ledger</button>
   <button onclick="showSection('magistratus')">Magistratus Reports</button>
@@ -315,7 +315,25 @@ BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: 
 
 <div class="main">
 
+<div id="lore" class="section">
+  <h2>Belus Prime — Planetary Dossier</h2>
 
+  <div class="card">
+    <h3>General Overview</h3>
+    <p>Belus Prime is an Imperial mining world located in the Belus system. Population: 21.8 billion. Governed nominally by Ludlow Penrose III.</p>
+  </div>
+
+  <div class="card">
+    <h3>History</h3>
+    <p>The planet was discovered in 383.M36. Human settlement may date as far back as M27. Named after Saint Olivier Belus, who guided the seven original families across the Immaterium.</p>
+  </div>
+
+  <div class="card">
+    <h3>Geography & Mining</h3>
+    <p>The planet features vast mountains and active mines. Ore from Belus Prime is vital for ceramite armor production. The system includes three moons: Arenig (ore hub), Tolig and Lavig (military fortresses).</p>
+  </div>
+
+</div>
 
 <div id="tithe" class="section active">
 <h2>Tithe Records</h2>
@@ -330,10 +348,10 @@ BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: 
 <div id="population" class="section">
 <h2>Population Ledger</h2>
 <table>
-<tr><th>Sector</th><th>Population (B)</th><th>Worker Class</th></tr>
-<tr><td>Cellan District</td><td>5.2</td><td>Mining</td></tr>
-<tr><td>North Highlands</td><td>2.1</td><td>Industrial</td></tr>
-<tr><td>South Quarters</td><td>1.9</td><td>Bureaucrats</td></tr>
+<tr><th>Sector</th><th>Population</th><th>Worker Class</th></tr>
+<tr><td>Cellan District</td><td>15,000</td><td>Bureaucrats</td></tr>
+<tr><td></td><td>2.1</td><td>Industrial</td></tr>
+<tr><td>South Quarters</td><td>1.9</td><td></td>mining</tr>
 </table>
 </div>
 

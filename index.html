@@ -9,52 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  <script>
-let clearanceLevel = 0;
-
-function authorizeAccess() {
-  const code = document.getElementById('clearanceCode').value;
-  const result = document.getElementById('loginResult');
-
-  if(code === 'ADMIN-765') {
-    clearanceLevel = 1;
-    result.innerHTML = 'ADMINISTRATUM CLEARANCE GRANTED';
-    unlockAccess();
-  }
-  else if(code === 'MECH-OMNISSIAH') {
-    clearanceLevel = 2;
-    result.innerHTML = 'MECHANICUS CLEARANCE GRANTED';
-    unlockAccess();
-  }
-  else if(code === 'STARc-764-M41') {
-    clearanceLevel = 3;
-    result.innerHTML = 'INQUISITORIAL CLEARANCE GRANTED';
-    unlockAccess();
-  }
-  else {
-    result.innerHTML = 'ACCESS DENIED — INCIDENT LOGGED';
-  }
-}
-
-function unlockAccess() {
-  document.getElementById('loginScreen').style.display = 'none';
-
-  if(clearanceLevel < 3) {
-    document.querySelector("button[onclick=\"showSection('inquisition')\"]").classList.add('restricted');
-  }
-}
-</script>
 body {
   margin: 0;
   font-family: 'Cinzel', serif;
   background-color: #07090f;
-  color: #d8d0c0;
+  color: #d4af37;
   min-height: 100vh;
 }
-html {
-  background-color: #07090f;
-}
-/* Top Header */
 header {
   position: fixed;
   top: 0;
@@ -65,25 +26,10 @@ header {
   z-index: 1000;
   text-align: center;
   font-weight: 600;
-}
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #0b0f1a;
-  border-bottom: 2px solid #8b6b2b;
-  padding: 15px;
-  z-index: 1000;
-  text-align: center;
-  font-weight: 600;
-  color: #d4af37; /* GOLD TEXT */
+  color: #d4af37;
 }
 header span { color: #d4af37; }
-  
-header span {
-  color: #d4af37; /* ensures spans inside header are also gold */
-}
-/* Sidebar */
+
 .sidebar {
   position: fixed;
   top: 60px;
@@ -109,13 +55,11 @@ header span {
 
 .sidebar button:hover { background-color: #111826; }
 
-/* Main content */
 .main {
   margin-left: 230px;
   padding: 80px 30px 30px 30px;
   background-color: #07090f;
   min-height: 100vh;
-  color: #d4af37; 
 }
 
 .section { display: none; }
@@ -128,30 +72,19 @@ h2 { color: #d4af37; font-weight: 600; }
   border: 1px solid #333;
   padding: 15px;
   margin-bottom: 15px;
-  color: #d4af37;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
   color: #d4af37;
 }
-
-td, th {
-  color: #d4af37;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
 th, td {
   border: 1px solid #333;
   padding: 8px;
   text-align: left;
 }
-
 th { background-color: #111826; }
 tr:nth-child(even) { background-color: #0b0f1a; }
 
@@ -161,66 +94,8 @@ footer {
   border-top: 1px solid #8b6b2b;
   color: #777;
 }
-  @media screen and (max-width: 768px) {
 
-     header {
-    position: fixed;
-    top: 0;
-    height: 60px;
-    padding: 10px;
-  }
-
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin-top: 60px; /* THIS FIXES THE OVERLAP */
-    border-bottom: 2px solid #8b6b2b;
-  }
-
-  .main {
-    margin-left: 0;
-    padding: 20px;
-  }
-    
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    top: 0;
-    border-right: none;
-    border-bottom: 2px solid #8b6b2b;
-  }
-
-  .sidebar button {
-    text-align: center;
-    font-size: 18px;
-  }
-
-  .main {
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  header {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  table {
-    font-size: 12px;
-  }
-
-  .card {
-    padding: 12px;
-  }
-
-}
-  #loginScreen {
+#loginScreen {
   position: fixed;
   top: 0;
   left: 0;
@@ -266,69 +141,98 @@ footer {
   opacity: 0.3;
   pointer-events: none;
 }
-</style>
 
 .card img {
   width: 100%;
   height: auto;
   max-width: 1000px;
-  
-<script>
-
-<script>
-function showSection(id) {
-  // hide all sections
-  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-  // show the selected section
-  document.getElementById(id).style.display = 'block';
 }
 
-// optional: show first section by default
-window.onload = function() {
-  showSection('dashboard'); // change to 'belus-system' if you want it default
-};
-</script>
-  
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+    border-right: none;
+    border-bottom: 2px solid #8b6b2b;
+  }
+  .sidebar button {
+    text-align: center;
+    font-size: 18px;
+  }
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
+  header {
+    font-size: 14px;
+    padding: 10px;
+  }
+  h2 { font-size: 20px; }
+  table { font-size: 12px; }
+  .card { padding: 12px; }
+}
+</style>
+
+<script>
+let clearanceLevel = 0;
+
+function authorizeAccess() {
+  const code = document.getElementById('clearanceCode').value;
+  const result = document.getElementById('loginResult');
+
+  if(code === 'ADMIN-765') { clearanceLevel = 1; result.innerHTML = 'ADMINISTRATUM CLEARANCE GRANTED'; unlockAccess(); }
+  else if(code === 'MECH-OMNISSIAH') { clearanceLevel = 2; result.innerHTML = 'MECHANICUS CLEARANCE GRANTED'; unlockAccess(); }
+  else if(code === 'STARc-764-M41') { clearanceLevel = 3; result.innerHTML = 'INQUISITORIAL CLEARANCE GRANTED'; unlockAccess(); }
+  else { result.innerHTML = 'ACCESS DENIED — INCIDENT LOGGED'; }
+}
+
+function unlockAccess() {
+  document.getElementById('loginScreen').style.display = 'none';
+  if(clearanceLevel < 3) {
+    const btn = document.querySelector("button[onclick=\"showSection('inquisition')\"]");
+    if(btn) btn.classList.add('restricted');
+  }
+}
+
 function showSection(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
 }
 
 function updateTimestamp() {
   const t = new Date();
   document.getElementById('timestamp').innerText = t.toUTCString();
 }
-
 setInterval(updateTimestamp, 1000);
 </script>
 
 </head>
-<body onload="showSection('dashboard')">
+<body onload="showSection('tithe')">
+
 <div id="loginScreen">
   <div class="loginBox">
     <h2>IMPERIAL ACCESS TERMINAL</h2>
     <p>Enter Clearance Code</p>
     <input type="password" id="clearanceCode" placeholder="Clearance Code">
     <button onclick="authorizeAccess()">AUTHORIZE</button>
-    <div id="loginResult"></div>
+    <div id="loginResult" style="margin-top:10px; color:#d4af37;"></div>
     <div style="margin-top:15px; font-size:12px; color:#777;">
-      CLEARANCE LEVELS:<br>
-      Administratum<br>
-      Mechanicus<br>
-      Inquisition
+      CLEARANCE LEVELS:<br>Administratum<br>Mechanicus<br>Inquisition
     </div>
   </div>
 </div>
+
 <header>
-BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: FULL COMPLIANCE | SYSTEM POPULATION: 53.4B | <span id="timestamp"></span>
+BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: FULL COMPLIANCE | SYSTEM POPULATION: 54.3B | <span id="timestamp"></span>
 </header>
 
 <div class="sidebar">
- <button onclick="showSection('lore')">Planetary Dossier</button>
-  
-  <button onclick="showSection('system')">Belus System</button>
- <button onclick="showSection('belus-system')">Belus System</button>
-
+  <button onclick="showSection('lore')">Planetary Dossier</button>
+  <button onclick="showSection('belus-system')">Belus System Map</button>
+  <button onclick="showSection('system-overview')">Belus System Overview</button>
   <button onclick="showSection('tithe')">Tithe Records</button>
   <button onclick="showSection('population')">Population Ledger</button>
   <button onclick="showSection('magistratus')">Magistratus Reports</button>
@@ -338,211 +242,105 @@ BELUS PRIME AUTHORITY NODE — <span>SEGMENTUM PACIFICUS</span> | TITHE STATUS: 
 </div>
 
 <div class="main">
-
-<div id="belus-system" class="section">
-  <h2>Belus System Map</h2>
-  <div class="card" style="text-align:center;">
-    <img src="belus_system_map.png" 
-         alt="Belus System Map" 
-         style="width:100%; max-width:1000px; height:auto; border:1px solid #8b6b2b; border-radius:8px;">
-    <p style="margin-top:10px; color:#d4af37; font-family:'Cinzel', serif; font-size:14px;">
-      Belus System — Segmentum Pacificus | Population: Est. 54.3B
-    </p>
+  <!-- Belus System Map -->
+  <div id="belus-system" class="section">
+    <h2>Belus System Map</h2>
+    <div class="card" style="text-align:center;">
+      <img src="belus_system_map.png" alt="Belus System Map">
+      <p>Belus System — Segmentum Pacificus | Population: Est. 54.3B</p>
+    </div>
   </div>
-</div>
-  
-<div id="system" class="section">
-  <h2>Belus System Overview</h2>
 
-  <div class="card">
-    <h3>Planets</h3>
+  <!-- System Overview -->
+  <div id="system-overview" class="section">
+    <h2>Belus System Overview</h2>
+    <div class="card">
+      <h3>Planets</h3>
+      <table>
+        <tr><th>Planet</th><th>Type</th><th>Role / Notes</th><th>Population</th></tr>
+        <tr><td>Belus Prime</td><td>Mining World</td><td>Central hub; mountains, open-cast & deep-core mines; 3 moons: Arenig, Tolig, Lavig</td><td>54.3B</td></tr>
+        <tr><td>Corwen</td><td>Mining World</td><td>Closest to star; requires environmental controls</td><td>8B</td></tr>
+        <tr><td>Tegrid</td><td>Gas Planet</td><td>Small gas mining for stellar fuel</td><td>Minimal / station workers</td></tr>
+        <tr><td>Tegrid 2</td><td>Gas Planet</td><td>Almost no harvestable gas; mostly uninhabited</td><td>N/A</td></tr>
+        <tr><td>Carno</td><td>Rocky / Mining Planet</td><td>Outer system mining; planet nearly cored, rumored collapse</td><td>Minimal / station workers</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Moons of Belus Prime</h3>
+      <table>
+        <tr><th>Moon</th><th>Role / Notes</th></tr>
+        <tr><td>Arenig</td><td>Main ore distribution hub; hundreds of haulers daily</td></tr>
+        <tr><td>Tolig</td><td>Military fortress moon</td></tr>
+        <tr><td>Lavig</td><td>Military fortress moon</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Planetary Dossier / Lore -->
+  <div id="lore" class="section">
+    <h2>Belus Prime — Planetary Dossier</h2>
+    <div class="card">
+      <p>All historical, cultural, and industrial background goes here.</p>
+    </div>
+  </div>
+
+  <!-- Tithe Records -->
+  <div id="tithe" class="section active">
+    <h2>Tithe Records</h2>
     <table>
-      <tr>
-        <th>Planet</th>
-        <th>Type</th>
-        <th>Role / Notes</th>
-        <th>Population</th>
-      </tr>
-      <tr>
-        <td>Belus Prime</td>
-        <td>Mining World</td>
-        <td>Central hub; mountains, open-cast & deep-core mines; 3 moons: Arenig, Tolig, Lavig</td>
-        <td>21.8B</td>
-      </tr>
-      <tr>
-        <td>Corwen</td>
-        <td>Mining World</td>
-        <td>Closest to star; requires environmental controls for workforce</td>
-        <td>8B</td>
-      </tr>
-      <tr>
-        <td>Tegrid</td>
-        <td>Gas Planet</td>
-        <td>Small-scale gas mining for stellar fuel</td>
-        <td>Minimal / station workers</td>
-      </tr>
-      <tr>
-        <td>Tegrid 2</td>
-        <td>Gas Planet</td>
-        <td>Almost no harvestable gas; mostly uninhabited</td>
-        <td>N/A</td>
-      </tr>
-      <tr>
-        <td>Carno</td>
-        <td>Rocky / Mining Planet</td>
-        <td>Outer system mining; planet nearly cored, rumored collapse</td>
-        <td>Minimal / station workers</td>
-      </tr>
+      <tr><th>Month</th><th>Ore (tons)</th><th>Compliance</th></tr>
+      <tr><td>765.M41-01</td><td>1,200,000</td><td>Full</td></tr>
+      <tr><td>765.M41-02</td><td>1,180,000</td><td>Full</td></tr>
+      <tr><td>765.M41-03</td><td>1,210,000</td><td>Full</td></tr>
     </table>
   </div>
 
-  <div class="card">
-    <h3>Moons of Belus Prime</h3>
+  <!-- Population Ledger -->
+  <div id="population" class="section">
+    <h2>Population Ledger</h2>
     <table>
-      <tr>
-        <th>Moon</th>
-        <th>Role / Notes</th>
-      </tr>
-      <tr>
-        <td>Arenig</td>
-        <td>Main ore distribution hub; hundreds of haulers arrive/depart daily</td>
-      </tr>
-      <tr>
-        <td>Tolig</td>
-        <td>Military fortress moon</td>
-      </tr>
-      <tr>
-        <td>Lavig</td>
-        <td>Military fortress moon</td>
-      </tr>
+      <tr><th>Sector</th><th>Population</th><th>Worker Class</th></tr>
+      <tr><td>Cellan District</td><td>15,000</td><td>Bureaucrats</td></tr>
+      <tr><td>North Highlands</td><td>2.1B</td><td>Industrial</td></tr>
+      <tr><td>South Quarters</td><td>1.9B</td><td>Mining</td></tr>
     </table>
   </div>
 
-  <div class="card">
-    <h3>Asteroid Belt</h3>
-    <p>Splits the system almost in half. Hundreds of mining operations (legal and illegal) take place. Large fleet patrols protect planets from rogue asteroids displaced by mining accidents.</p>
-  </div>
-</div>
-  
-<div id="lore" class="section">
-  <h2>Belus Prime — Planetary Dossier</h2>
-
-  <div class="card">
-    <h3>General Overview</h3>
-    <p>Belus system (circa 765.M41)</p>
-<P>Primary Planet: Belus Prime</P>
-  
-<P>Affiliation: Imperium of Man, Adeptus Mechanicus</P>
-<P>Type: Mining World</P>
-<P>Size: 1.8 terran equivalent</P>
-<P>Orbital Radius: 1.1 AU</P>
-<P>Gravity: 1.2 G</P>
-<P>Temperature/Climate: 18c Artic to temperate</P>
-<P>Population: 21.8 Billion</P>
-<P>Planetary Governor: Ludlow Penrose III</P>
-<P>System: Belus System</P>
-<P>Sub-sector: Unknown </P>
-
-<P>Segmentum: Segmentum Pacificus</P>
-<P>Tithe Grade: Ore</P>
-</p>
+  <!-- Magistratus Reports -->
+  <div id="magistratus" class="section">
+    <h2>Magistratus Reports</h2>
+    <table>
+      <tr><th>Bastion</th><th>Sector</th><th>Status</th></tr>
+      <tr><td>Bastion Alpha</td><td>Cellan</td><td>Fully Staffed</td></tr>
+      <tr><td>Bastion Beta</td><td>North Highlands</td><td>Patrolling</td></tr>
+      <tr><td>Bastion Gamma</td><td>South Quarters</td><td>Maintenance</td></tr>
+    </table>
   </div>
 
+  <!-- Administrative Orders -->
+  <div id="administratum" class="section">
+    <h2>Administrative Orders</h2>
+    <div class="card">Order #765-01: Maintain full ore extraction compliance in all sectors.</div>
+    <div class="card">Order #765-02: Verify all workforce credentials monthly.</div>
+    <div class="card">Order #765-03: Bastion security audits to be reported to Governor Ludlow Penrose III.</div>
+  </div>
 
+  <!-- Mechanicus Nodes -->
+  <div id="mechanicus" class="section">
+    <h2>Mechanicus Nodes</h2>
+    <div class="card">Forge Node Alpha: Operational | Ore Processing: Nominal</div>
+    <div class="card">Atmospheric Processor Delta: Stable | Pollutant levels: Normal</div>
+    <div class="card">All Servitor Units Online: 1,200</div>
+  </div>
 
- <div class="card">
-  <h3>History of the Belus System & Belus Prime</h3>
-  <p>
-    The <strong>Belus system</strong> was first observed in 383.M36 due to unusual warp-route fluxes detected by the Adeptus Astronomica. Initial surveys revealed three rocky worlds, two gas giants, and a vast asteroid belt that would later prove crucial to the system’s industrial output.
-  </p>
-  <p>
-    <strong>Belus Prime</strong>, the central planet of the system, holds a special place in Imperial history. Named for <strong>Saint Olivier Belus</strong>, the semi-legendary navigator and spiritual guide, it is said that Saint Olivier led the seven original settler families across the Immaterium to this world, establishing the foundations of human habitation in this remote sector. Evidence of earlier human activity suggests that human outposts may have existed as far back as M27, though these were cut off from the wider Imperium and likely lost to time. Certain artefacts recovered from deep-core mines are believed to originate from this primordial colonization.
-  </p>
-  <p>
-    Upon the planet’s formal discovery, the <strong>Imperium of Man</strong> recognized the strategic and material value of its ore deposits, essential for the production of ceramite armor and other war materiel. Belus Prime was formally claimed under Imperial law, and an Administratum presence was established, though day-to-day operations remained heavily influenced by the <strong>Adeptus Mechanicus</strong>.
-  </p>
-  <p>
-    To administer the growing population and ensure compliance with the Tithe requirements, the Imperium installed <strong>Governor Ludlow Penrose III</strong>, though real authority resided with the three surviving dynastic families — <strong>Gwynedd, Nefyn, and Idris</strong> — descendants of the original seven settler families. Through centuries of corporate maneuvering, war, and intrigue, these families consolidated power, controlling mining rights, infrastructure, and security forces across the planet.
-  </p>
-  <p>
-    Belus Prime’s history is not without turmoil. Notable incidents include:
-    <ul>
-      <li><strong>Et Absentis 764.M41</strong> — Inquisitor <strong>Madwyn Starc</strong> uncovered a servitor conversion conspiracy involving the Idris family and an Adeptus Mechanicus adept.</li>
-      <li><strong>Mentis Viribis 744.M41</strong> — A rogue Mechanicus attempt to create psychic-capable servitors was thwarted by Inquisitorial intervention.</li>
-    </ul>
-  </p>
-  <p>
-    The planet’s geography and infrastructure were profoundly shaped by mining. Vast mountain ranges and open-cast mines became the foundations for urban districts, while the three moons — <strong>Arenig</strong> (primary ore hub), <strong>Tolig</strong>, and <strong>Lavig</strong> (military fortresses) — ensured the system’s resource flow and defense. The asteroid belt, splitting the system nearly in half, remains a source of both wealth and danger, with numerous mining operations and patrol fleets maintaining order.
-  </p>
-  <p>
-    Over the centuries, Belus Prime has evolved into a <strong>well-fortified, industrious world</strong>, central to Imperial military supply chains and Mechanicus industrial production. Its population of over 53 billion souls labors under a strict bureaucratic and militarized regime, ensuring that the planet remains one of the Imperium’s most valuable and tightly controlled mining worlds.
-  </p>
-</div>
-
-</div>
-  
-<div id="belus-system" class="section">
-  <h2>Belus System</h2>
-  <img src="Belus Prime System Map.png" 
-       alt="Belus Prime System Map" 
-       style="width:100%; max-width:1000px; height:auto; border:1px solid #8b6b2b; border-radius:8px;">
-  <p style="color:#d4af37; font-family:'Cinzel', serif; font-size:14px; margin-top:8px;">
-    Belus System — Segmentum Pacificus | Population: Est. 54.3B
-  </p>
-</div>
-
-  
-<div id="tithe" class="section active">
-<h2>Tithe Records</h2>
-<table>
-<tr><th>Month</th><th>Ore (tons)</th><th>Compliance</th></tr>
-<tr><td>765.M41-01</td><td>1,200,000</td><td>Full</td></tr>
-<tr><td>765.M41-02</td><td>1,180,000</td><td>Full</td></tr>
-<tr><td>765.M41-03</td><td>1,210,000</td><td>Full</td></tr>
-</table>
-</div>
-
-<div id="population" class="section">
-<h2>Population Ledger</h2>
-<table>
-<tr><th>Sector</th><th>Population</th><th>Worker Class</th></tr>
-<tr><td>Cellan District</td><td>15,000</td><td>Bureaucrats</td></tr>
-<tr><td></td><td>2.1</td><td>Industrial</td></tr>
-<tr><td>South Quarters</td><td>1.9</td><td></td>mining</tr>
-</table>
-</div>
-
-<div id="magistratus" class="section">
-<h2>Magistratus Reports</h2>
-<table>
-<tr><th>Bastion</th><th>Sector</th><th>Status</th></tr>
-<tr><td>Bastion Alpha</td><td>Cellan</td><td>Fully Staffed</td></tr>
-<tr><td>Bastion Beta</td><td>North Highlands</td><td>Patrolling</td></tr>
-<tr><td>Bastion Gamma</td><td>South Quarters</td><td>Maintenance</td></tr>
-</table>
-</div>
-
-<div id="administratum" class="section">
-<h2>Administrative Orders</h2>
-<div class="card">Order #765-01: Maintain full ore extraction compliance in all sectors.</div>
-<div class="card">Order #765-02: Verify all workforce credentials monthly.</div>
-<div class="card">Order #765-03: Bastion security audits to be reported to Governor Ludlow Penrose III.</div>
-</div>
-
-<div id="mechanicus" class="section">
-<h2>Mechanicus Nodes</h2>
-<div class="card">Forge Node Alpha: Operational | Ore Processing: Nominal</div>
-<div class="card">Atmospheric Processor Delta: Stable | Pollutant levels: Normal</div>
-<div class="card">All Servitor Units Online: 1,200</div>
-</div>
-
-<div id="inquisition" class="section">
-<h2>Restricted — Inquisition</h2>
-<div class="card">Access requires clearance code.</div>
-<input id="inqcode" placeholder="Enter Clearance Code" style="padding:8px; width:200px; margin-top:10px;" />
-<button onclick="checkInquisition()" style="padding:8px;">Authorize</button>
-<div id="inqresult" class="card" style="margin-top:10px;"></div>
-</div>
+  <!-- Inquisition -->
+  <div id="inquisition" class="section">
+    <h2>Restricted — Inquisition</h2>
+    <div class="card">Access requires clearance code.</div>
+    <input id="inqcode" placeholder="Enter Clearance Code" style="padding:8px; width:200px; margin-top:10px;" />
+    <button onclick="checkInquisition()" style="padding:8px;">Authorize</button>
+    <div id="inqresult" class="card" style="margin-top:10px;"></div>
+  </div>
 
 </div>
 
@@ -557,53 +355,6 @@ function checkInquisition() {
   } else {
     result.innerHTML = 'ACCESS DENIED<br>Unauthorized access logged';
   }
-}
-</script>
-
-<script>
-let clearanceLevel = 0;
-
-function authorizeAccess() {
-
-  const input = document.getElementById("clearanceCode");
-  const result = document.getElementById("loginResult");
-
-  if(!input) {
-    alert("ERROR: clearanceCode input not found");
-    return;
-  }
-
-  const code = input.value;
-
-  if(code === "ADMIN-765") {
-    clearanceLevel = 1;
-    result.innerHTML = "ADMINISTRATUM CLEARANCE GRANTED";
-    unlockAccess();
-  }
-  else if(code === "MECH-OMNISSIAH") {
-    clearanceLevel = 2;
-    result.innerHTML = "MECHANICUS CLEARANCE GRANTED";
-    unlockAccess();
-  }
-  else if(code === "STARc-764-M41") {
-    clearanceLevel = 3;
-    result.innerHTML = "INQUISITORIAL CLEARANCE GRANTED";
-    unlockAccess();
-  }
-  else {
-    result.innerHTML = "ACCESS DENIED — INCIDENT LOGGED";
-  }
-
-}
-
-function unlockAccess() {
-
-  const login = document.getElementById("loginScreen");
-
-  if(login){
-    login.style.display = "none";
-  }
-
 }
 </script>
 

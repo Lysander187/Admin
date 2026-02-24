@@ -66,9 +66,23 @@ header {
   text-align: center;
   font-weight: 600;
 }
-
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0b0f1a;
+  border-bottom: 2px solid #8b6b2b;
+  padding: 15px;
+  z-index: 1000;
+  text-align: center;
+  font-weight: 600;
+  color: #d4af37; /* GOLD TEXT */
+}
 header span { color: #d4af37; }
-
+  
+header span {
+  color: #d4af37; /* ensures spans inside header are also gold */
+}
 /* Sidebar */
 .sidebar {
   position: fixed;

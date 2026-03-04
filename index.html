@@ -364,9 +364,9 @@ let clearanceLevel = 0;
 function authorizeAccess() {
   const code = document.getElementById("clearanceCode").value;
   const result = document.getElementById("loginResult");
-  if(code === "ADMIN-765") { clearanceLevel=1; result.innerHTML="ADMINISTRATUM CLEARANCE GRANTED"; unlockAccess(); }
-  else if(code === "MECH-OMNISSIAH") { clearanceLevel=2; result.innerHTML="MECHANICUS CLEARANCE GRANTED"; unlockAccess(); }
-  else if(code === "STARc-764-M41") { clearanceLevel=3; result.innerHTML="INQUISITORIAL CLEARANCE GRANTED"; unlockAccess(); }
+  if(code === "admin") { clearanceLevel=1; result.innerHTML="ADMINISTRATUM CLEARANCE GRANTED"; unlockAccess(); }
+  else if(code === "mech") { clearanceLevel=2; result.innerHTML="MECHANICUS CLEARANCE GRANTED"; unlockAccess(); }
+  else if(code === "starc") { clearanceLevel=3; result.innerHTML="INQUISITORIAL CLEARANCE GRANTED"; unlockAccess(); }
   else { result.innerHTML="ACCESS DENIED — INCIDENT LOGGED"; }
 }
 function unlockAccess() {
@@ -382,7 +382,7 @@ function unlockAccess() {
 function checkInquisition() {
   const code = document.getElementById('inqcode').value;
   const result = document.getElementById('inqresult');
-  if(code==='STARc-764-M41') result.innerHTML='ACCESS GRANTED<br>Inquisitor Madwyn Starc Clearance Confirmed';
+  if(code==='starc') result.innerHTML='ACCESS GRANTED<br>Inquisitor Madwyn Starc Clearance Confirmed';
   else result.innerHTML='ACCESS DENIED<br>Unauthorized access logged';
 }
 
